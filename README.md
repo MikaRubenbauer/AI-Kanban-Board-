@@ -24,7 +24,7 @@ Open `index.html` directly in any modern browser. No build step, no dependencies
 ## Assignment Context
 
 **Course**: Web Engineering – DHBW Karlsruhe  
-**Task**: Generate a Kanban board using an LLM (Claude) via prompt engineering, document the prompt and results, submit via GitLab Merge Request.
+**Task**: Generate a Kanban board using an LLM (Gemini) via prompt engineering, document the prompt and results, submit via GitLab Merge Request.
 
 ## Quality Criteria (per assignment spec)
 
