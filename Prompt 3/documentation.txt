@@ -1,0 +1,48 @@
+Prompt: Kanban Board – DHBW Web Engineering Assignment
+
+        A frontend-only Kanban board built with HTML, CSS, and vanilla JavaScript as part of the DHBW Web Engineering course (Prompt Engineering group assignment).
+        Features
+
+        3 Columns: ToDo / In Progress / Done
+        3 Card Types: Bug (red), User Story (green), Task (blue)
+        Card Fields: Title, Description, Story Points (hours)
+        Create & Delete cards
+        Drag & Drop with visual drop zone feedback
+        Responsive Layout (mobile, tablet, desktop)
+        Tech Stack
+
+        HTML5 (semantic, W3C valid)
+        CSS3
+        Vanilla JavaScript (ES6+, no var, no frameworks)
+        How to Run
+
+        Open index.html directly in any modern browser. No build step, no dependencies.
+        Assignment Context
+
+        Course: Web Engineering – DHBW Karlsruhe
+        Task: Generate a Kanban board using an LLM (Claude) via prompt engineering, document the prompt and results, submit via GitLab Merge Request.
+        Quality Criteria (per assignment spec)
+
+         Semantic HTML
+         Valid HTML (validator.w3.org)
+         Modern JS (no var)
+         Clean Code
+         Drag & Drop visual feedback
+         No external frameworks
+         Responsive Design
+
+Module used: Gemini Pro
+
+Reply: Below is the complete, clean-code solution meeting all of your quality criteria: semantic HTML,
+        responsive CSS, and modern Vanilla JS (with native Drag & Drop).
+        You can copy these three files into the same directory and open index.html in your browser. No build steps are required.
+
+Result: Everything is in one File instead of three.
+        There is no Design and no functionality at all.
+     -> even though the prompt was clear and detailed, the result is not usable.
+        It does not meet the quality criteria of clean code, semantic HTML, or responsive design.
+        The code is likely incomplete or contains errors that prevent it from functioning as intended.
+        So just a longer prompt is not enough to get a good result. The quality of the output also depends
+        on the model's capabilities and how well it can understand and execute the instructions.
+
+

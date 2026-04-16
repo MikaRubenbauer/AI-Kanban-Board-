@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHBW Kanban Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app-header">
+    <h1>Kanban Board</h1>
+    <button id="add-card-btn" class="primary-btn">+ Add New Card</button>
+</header>
+
+<main class="board">
+    <section class="column" id="todo" data-column="todo">
+        <header class="column-header">
+            <h2>To Do</h2>
+        </header>
+        <div class="cards-container"></div>
+    </section>
+
+    <section class="column" id="in-progress" data-column="in-progress">
+        <header class="column-header">
+            <h2>In Progress</h2>
+        </header>
+        <div class="cards-container"></div>
+    </section>
+
+    <section class="column" id="done" data-column="done">
+        <header class="column-header">
+            <h2>Done</h2>
+        </header>
+        <div class="cards-container"></div>
+    </section>
+</main>
+
+<dialog id="card-modal">
+    <form id="card-form">
+        <h2>Create New Task</h2>
+
+        <div class="form-group">
+            <label for="card-title">Title</label>
+            <input type="text" id="card-title" required placeholder="e.g., Fix login button">
+        </div>
+
+        <div class="form-group">
+            <label for="card-desc">Description</label>
+            <textarea id="card-desc" required placeholder="Describe the task..."></textarea>
+        </div>
+
+        <div class="form-group row">
+            <div class="half-width">
+                <label for="card-type">Type</label>
+                <select id="card-type" required>
+                    <option value="task">Task (Blue)</option>
+                    <option value="story">User Story (Green)</option>
+                    <option value="bug">Bug (Red)</option>
+                </select>
+            </div>
+            <div class="half-width">
+                <label for="card-points">Story Points (Hours)</label>
+                <input type="number" id="card-points" min="1" required placeholder="e.g., 4">
+            </div>
+        </div>
+
+        <menu class="modal-actions">
+            <button type="button" id="cancel-btn" class="secondary-btn">Cancel</button>
+            <button type="submit" class="primary-btn">Create Task</button>
+        </menu>
+    </form>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
