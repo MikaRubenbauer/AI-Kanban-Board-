@@ -1,0 +1,20 @@
+Prompt: Create a Knaban-Board in java script with the following features: 3 Columns:
+        ToDo / In Progress / Done
+        3 Card Types: Bug (red), User Story (green), Task (blue)
+        Card Fields: Title, Description, Story Points (hours)
+        Create & Delete cards
+        Drag & Drop with visual drop zone feedback
+        Responsive Layout (mobile, tablet, desktop)
+
+Module used: Gemini fast
+
+Reply:This is a complete, single-file solution using Vanilla JavaScript, CSS Grid/Flexbox, and the HTML5 Drag and Drop API.
+           No external libraries are required.
+
+Result: Everything is in one File instead of three.
+        There is a Design now as well as Drag and Drop functionality.
+        You can create and delete cards.
+        Can open index.html directly in any modern browser. No build step, no dependencies.
+        Code has multiples warning and errors no clean code.
+
+
