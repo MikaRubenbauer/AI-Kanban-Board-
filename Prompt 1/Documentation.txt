@@ -7,3 +7,4 @@ Reply: Below is a "Vanilla" implementation (HTML/CSS/JS) that provides a clean,
 
 Result: No design or styling no ability to drag or add anything to the board,
         but it is a functional starting point.
+        No Clean Code, no comments, no modularization, no error handling, no responsiveness.
