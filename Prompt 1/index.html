@@ -1,0 +1,23 @@
+<div class="kanban-board">
+    <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h3>To Do</h3>
+        <div class="task-list" id="todo">
+            <div class="card" draggable="true" ondragstart="drag(event)" id="task1">
+                Research API Documentation
+            </div>
+            <div class="card" draggable="true" ondragstart="drag(event)" id="task2">
+                Design UI Mockups
+            </div>
+        </div>
+    </div>
+
+    <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h3>Doing</h3>
+        <div class="task-list" id="doing"></div>
+    </div>
+
+    <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h3>Done</h3>
+        <div class="task-list" id="done"></div>
+    </div>
+</div>
