@@ -5,6 +5,6 @@ Module used: Gemini fast
 Reply: Below is a "Vanilla" implementation (HTML/CSS/JS) that provides a clean,
        functional board with three columns: To Do, Doing, and Done.
 
-Result: No design or styling no ability to drag or add anything to the board,
-        but it is a functional starting point.
+Result: Functional starting point, but no design or styling, no ability to drag or ad anything to the board
+        (missing reference to style.css and script.js in HTML structure),
         No Clean Code, no comments, no modularization, no error handling, no responsiveness.
