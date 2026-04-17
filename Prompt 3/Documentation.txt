@@ -6,30 +6,30 @@ Prompt: Kanban Board – DHBW Web Engineering Assignment
         3 Columns: ToDo / In Progress / Done
         3 Card Types: Bug (red), User Story (green), Task (blue)
         Card Fields: Title, Description, Story Points (hours)
-        Create & Delete cards
-        Drag & Drop with visual drop zone feedback
-        Responsive Layout (mobile, tablet, desktop)
+        Create & Delete cards
+        Drag & Drop with visual drop zone feedback
+        Responsive Layout (mobile, tablet, desktop)
         Tech Stack
 
         HTML5 (semantic, W3C valid)
         CSS3
-        Vanilla JavaScript (ES6+, no var, no frameworks)
+        Vanilla JavaScript (ES6+, no var, no frameworks)
         How to Run
 
-        Open index.html directly in any modern browser. No build step, no dependencies.
+        Open index.html directly in any modern browser. No build step, no dependencies.
         Assignment Context
 
         Course: Web Engineering – DHBW Karlsruhe
         Task: Generate a Kanban board using an LLM (Claude) via prompt engineering, document the prompt and results, submit via GitLab Merge Request.
         Quality Criteria (per assignment spec)
 
-         Semantic HTML
-         Valid HTML (validator.w3.org)
-         Modern JS (no var)
-         Clean Code
-         Drag & Drop visual feedback
-         No external frameworks
-         Responsive Design
+        Semantic HTML
+        Valid HTML (validator.w3.org)
+        Modern JS (no var)
+        Clean Code
+        Drag & Drop visual feedback
+        No external frameworks
+        Responsive Design
 
 Module used: Gemini Pro
 
