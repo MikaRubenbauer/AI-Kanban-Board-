@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Kanban Board</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Kanban Board</h1>
+  <button id="add-card-btn">+ Add Card</button>
+</header>
+
+<main class="board">
+  <div class="column" data-status="todo">
+    <div class="column-header">
+      <h2>To Do</h2>
+      <span class="card-count">0</span>
+    </div>
+    <div class="card-container"></div>
+  </div>
+
+  <div class="column" data-status="in-progress">
+    <div class="column-header">
+      <h2>In Progress</h2>
+      <span class="card-count">0</span>
+    </div>
+    <div class="card-container"></div>
+  </div>
+
+  <div class="column" data-status="done">
+    <div class="column-header">
+      <h2>Done</h2>
+      <span class="card-count">0</span>
+    </div>
+    <div class="card-container"></div>
+  </div>
+</main>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal-content">
+    <h2>Create New Card</h2>
+    <form id="card-form">
+      <div class="form-group">
+        <label for="title">Title *</label>
+        <input type="text" id="title" required maxlength="80" placeholder="E.g., Fix mobile navigation">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" rows="4" placeholder="Add more details..."></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="type">Card Type</label>
+          <select id="type">
+            <option value="story">User Story</option>
+            <option value="task">Task</option>
+            <option value="bug">Bug</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="points">Story Points (Hours)</label>
+          <input type="number" id="points" min="0" step="0.5" value="1">
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" id="cancel-btn">Cancel</button>
+        <button type="submit" class="btn-save">Save Card</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
