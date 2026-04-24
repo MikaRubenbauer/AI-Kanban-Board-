@@ -23,6 +23,5 @@ Result: It uses three separate files.
         You can also put in a description besides the name of a card.
         Can open index.html directly in any modern browser. No build step, no dependencies.
         No separate popup for card creation, included in header.
-        Code has multiples warning and errors.
         There are length limits for every input parameter, no overlapping occurs.
 
