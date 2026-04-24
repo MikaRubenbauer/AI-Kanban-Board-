@@ -1,0 +1,28 @@
+Prompt: Create a frontend-only Kanban board with HTML5, CSS3, and vanilla JavaScript
+        (ES6+, no var, no external frameworks) and implement it in three separate files (.js, .html, .css), using clean code.
+
+        Required features:
+        * 3 Columns: ToDo / In Progress / Done
+        * 3 Card Types: Bug (red), User Story (green), Task (blue)
+        * Card Fields: Title, Description, Story Points (hours)
+        * Create & Delete cards
+        * Drag & Drop with visual drop zone feedback
+        * Responsive Layout (mobile, tablet, desktop), also considering no overlapping of elements and fixed sizes of text boxes
+        -> The design must be complete and idiot-proof (e.g. too long input values for description should not cause visual or functional problems)
+
+        Use a modern and clean design approach with light shadows and rounded edges. It needs to be as user-friendly as possible.
+
+
+Module used: Gemini Pro
+
+Reply: Here is the complete, responsive, and idiot-proof Kanban board implementation. It is split into three separate files: HTML, CSS, and JavaScript.
+
+Result: It uses three separate files.
+        There is a modern and clean design as well as Drag and Drop functionality.
+        You can create and delete cards.
+        You can also put in a description besides the name of a card.
+        Can open index.html directly in any modern browser. No build step, no dependencies.
+        No separate popup for card creation, included in header.
+        Code has multiples warning and errors.
+        There are length limits for every input parameter, no overlapping occurs.
+

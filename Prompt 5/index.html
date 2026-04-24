@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Modern Kanban Board</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header class="header">
+            <h1>Kanban Board</h1>
+            <form id="task-form" class="task-form">
+                <div class="input-group">
+                    <input type="text" id="title" placeholder="Task Title (Max 50 chars)" maxlength="50" required>
+                </div>
+                <div class="input-group">
+                    <textarea id="description" placeholder="Description (Max 300 chars)" maxlength="300" required></textarea>
+                </div>
+                <div class="row-group">
+                    <select id="type" required>
+                        <option value="" disabled selected>Select Type</option>
+                        <option value="task">Task</option>
+                        <option value="story">User Story</option>
+                        <option value="bug">Bug</option>
+                    </select>
+                    <input type="number" id="points" placeholder="Hours" min="0" max="999" required>
+                    <button type="submit" class="btn-submit">Add Task</button>
+                </div>
+            </form>
+        </header>
+
+        <main class="board">
+            <div class="column">
+                <h2 class="column-header">ToDo</h2>
+                <div class="task-list" data-status="todo"></div>
+            </div>
+            <div class="column">
+                <h2 class="column-header">In Progress</h2>
+                <div class="task-list" data-status="in-progress"></div>
+            </div>
+            <div class="column">
+                <h2 class="column-header">Done</h2>
+                <div class="task-list" data-status="done"></div>
+            </div>
+        </main>
+    </body>
+</html>
