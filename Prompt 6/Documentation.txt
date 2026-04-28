@@ -1,0 +1,26 @@
+Prompt: Create a frontend-only Kanban board with HTML5, CSS3, and vanilla JavaScript
+        (ES6+, no var, no external frameworks) and implement it in three separate files (.js, .html, .css).
+
+        Required features:
+        * 3 Columns: ToDo / In Progress / Done
+        * 3 Card Types: Bug (red), User Story (green), Task (blue)
+        * Card Fields: Title, Description, Story Points (hours)
+        * Create & Delete cards
+        * Drag & Drop with visual drop zone feedback
+        * Responsive Layout (mobile, tablet, desktop), also considering no overlapping of elements and fixed sizes of text boxes
+        * columns should fill out the complete width of the screen
+        * overflow of text entered in the title field should be handled and not overflow over displayed card
+
+        Use a modern, simplistic design approach. It needs to be as user-friendly as possible.
+
+Model used: Gemini Thinking
+
+Result: Key Features Explained:
+        Responsiveness: On mobile devices, the columns stack vertically. On desktops, they sit side-by-side and share the width equally (flex: 1).
+
+        Visual Feedback: The dragenter and dragleave functions toggle a drag-over class that changes the column's background and adds a dashed border when a card is held over it.  
+
+        Text Safety: The card titles use text-overflow: ellipsis to prevent long titles from breaking the card layout, and descriptions use word-wrap: break-word for long strings.  
+
+        Simplistic UI: Used a clean color palette (standard Kanban colors) with subtle shadows and rounded corners for a modern feel.
+

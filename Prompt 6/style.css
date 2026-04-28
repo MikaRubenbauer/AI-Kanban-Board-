@@ -1,0 +1,161 @@
+:root {
+    --bg-color: #f4f7f9;
+    --column-bg: #ebedf0;
+    --text-main: #333;
+    --bug-color: #ff4d4d;
+    --story-color: #2ecc71;
+    --task-color: #3498db;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header & Inputs */
+.controls {
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.form-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+input, select, button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+button {
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #222;
+}
+
+/* Board Layout */
+.board {
+    display: flex;
+    flex: 1;
+    gap: 15px;
+    padding: 20px;
+    overflow-x: auto; /* Scroll horizontally on small screens */
+}
+
+.column {
+    flex: 1;
+    min-width: 300px; /* Ensures columns don't get too squashed */
+    background-color: var(--column-bg);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.2s ease;
+}
+
+.column h2 {
+    text-align: center;
+    color: var(--text-main);
+    font-size: 1.2rem;
+    padding: 10px;
+    margin: 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.card-container {
+    flex: 1;
+    padding: 10px;
+}
+
+/* Drag and Drop Feedback */
+.column.drag-over {
+    background-color: #dfe3e6;
+    border: 2px dashed #bbb;
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    cursor: grab;
+    position: relative;
+    border-left: 8px solid #ccc;
+    word-wrap: break-word; /* Handles long description text */
+}
+
+.card:active {
+    cursor: grabbing;
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Handles title overflow */
+    max-width: 200px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 10px 0;
+}
+
+.card .points {
+    font-weight: bold;
+    font-size: 0.8rem;
+    background: #eee;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    color: #ccc;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    color: var(--bug-color);
+}
+
+/* Card Types */
+.card.bug { border-left-color: var(--bug-color); }
+.card.story { border-left-color: var(--story-color); }
+.card.task { border-left-color: var(--task-color); }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .board {
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+    .column {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+}

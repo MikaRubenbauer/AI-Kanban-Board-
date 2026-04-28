@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Kanban Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="controls">
+        <div class="form-container">
+            <input type="text" id="card-title" placeholder="Title..." maxlength="50">
+            <input type="text" id="card-desc" placeholder="Description...">
+            <input type="number" id="card-points" placeholder="Points" min="0">
+            <select id="card-type">
+                <option value="task">Task (Blue)</option>
+                <option value="bug">Bug (Red)</option>
+                <option value="story">User Story (Green)</option>
+            </select>
+            <button id="add-btn">Add Card</button>
+        </div>
+    </header>
+
+    <main class="board">
+        <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
+            <h2>To Do</h2>
+            <div class="card-container"></div>
+        </div>
+        <div class="column" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
+            <h2>In Progress</h2>
+            <div class="card-container"></div>
+        </div>
+        <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
+            <h2>Done</h2>
+            <div class="card-container"></div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
