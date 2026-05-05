@@ -10,6 +10,7 @@ Prompt: Create a frontend-only Kanban board with HTML5, CSS3, and vanilla JavaSc
         * Responsive Layout (mobile, tablet, desktop), also considering no overlapping of elements and fixed sizes of text boxes
         * columns should fill out the complete width of the screen
         * overflow of text entered in the title field should be handled and not overflow over displayed card
+        * there should open up a popup for creating a new card, the field for entering the description should have an apropriate size to enter a description
 
         Use a modern, simplistic design approach. It needs to be as user-friendly as possible.
 

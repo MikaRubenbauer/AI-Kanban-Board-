@@ -3,39 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Kanban Board</title>
+    <title>Minimalist Kanban</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="controls">
-        <div class="form-container">
-            <input type="text" id="card-title" placeholder="Title..." maxlength="50">
-            <input type="text" id="card-desc" placeholder="Description...">
-            <input type="number" id="card-points" placeholder="Points" min="0">
-            <select id="card-type">
-                <option value="task">Task (Blue)</option>
-                <option value="bug">Bug (Red)</option>
-                <option value="story">User Story (Green)</option>
-            </select>
-            <button id="add-btn">Add Card</button>
-        </div>
+    <header class="app-header">
+        <h1>Project Board</h1>
+        <button id="btn-open-modal" class="btn-primary">+ Add New Card</button>
     </header>
 
-    <main class="board">
-        <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
-            <h2>To Do</h2>
-            <div class="card-container"></div>
-        </div>
-        <div class="column" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
-            <h2>In Progress</h2>
-            <div class="card-container"></div>
-        </div>
-        <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
-            <h2>Done</h2>
-            <div class="card-container"></div>
-        </div>
+    <main class="kanban-board">
+        <section class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
+            <div class="column-title">To Do</div>
+            <div class="card-list"></div>
+        </section>
+        <section class="column" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
+            <div class="column-title">In Progress</div>
+            <div class="card-list"></div>
+        </section>
+        <section class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
+            <div class="column-title">Done</div>
+            <div class="card-list"></div>
+        </section>
     </main>
+
+    <!-- Popup Modal -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-box">
+            <h2>New Task Details</h2>
+            
+            <div class="input-group">
+                <label>Title</label>
+                <input type="text" id="inp-title" placeholder="What needs to be done?" maxlength="40">
+            </div>
+
+            <div class="input-group">
+                <label>Description</label>
+                <textarea id="inp-desc" rows="6" placeholder="Provide more context..."></textarea>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Story Points (hrs)</label>
+                    <input type="number" id="inp-points" value="1" min="1">
+                </div>
+                <div class="input-group">
+                    <label>Category</label>
+                    <select id="inp-type">
+                        <option value="task">Task (Blue)</option>
+                        <option value="bug">Bug (Red)</option>
+                        <option value="story">User Story (Green)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button id="btn-close-modal" class="btn-secondary">Cancel</button>
+                <button id="btn-save-card" class="btn-primary">Create Card</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

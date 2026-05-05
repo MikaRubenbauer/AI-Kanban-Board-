@@ -1,161 +1,168 @@
 :root {
-    --bg-color: #f4f7f9;
-    --column-bg: #ebedf0;
-    --text-main: #333;
-    --bug-color: #ff4d4d;
-    --story-color: #2ecc71;
-    --task-color: #3498db;
+    --bg: #f8fafc;
+    --col-bg: #f1f5f9;
+    --bug: #ef4444;
+    --story: #22c55e;
+    --task: #3b82f6;
+    --text: #1e293b;
 }
+
+* { box-sizing: border-box; }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
     margin: 0;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    height: 100vh;
 }
 
-/* Header & Inputs */
-.controls {
-    padding: 20px;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    z-index: 10;
-}
-
-.form-container {
+/* Header */
+.app-header {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
 }
 
-input, select, button {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    outline: none;
-}
-
-button {
-    background-color: #555;
-    color: white;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-button:hover {
-    background-color: #222;
-}
+/* Buttons */
+.btn-primary { background: #0f172a; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; }
+.btn-secondary { background: #e2e8f0; color: var(--text); border: none; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; }
 
 /* Board Layout */
-.board {
+.kanban-board {
     display: flex;
     flex: 1;
-    gap: 15px;
-    padding: 20px;
-    overflow-x: auto; /* Scroll horizontally on small screens */
+    padding: 1.5rem;
+    gap: 1.5rem;
+    overflow-x: auto;
 }
 
 .column {
     flex: 1;
-    min-width: 300px; /* Ensures columns don't get too squashed */
-    background-color: var(--column-bg);
-    border-radius: 8px;
+    min-width: 300px;
+    background: var(--col-bg);
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
-    transition: background-color 0.2s ease;
+    border: 2px solid transparent;
 }
 
-.column h2 {
-    text-align: center;
-    color: var(--text-main);
-    font-size: 1.2rem;
-    padding: 10px;
-    margin: 0;
-    border-bottom: 2px solid #ddd;
+.column-title {
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #64748b;
 }
 
-.card-container {
-    flex: 1;
-    padding: 10px;
-}
+.card-list { flex: 1; padding: 0.75rem; }
 
-/* Drag and Drop Feedback */
+/* Visual Feedback */
 .column.drag-over {
-    background-color: #dfe3e6;
-    border: 2px dashed #bbb;
+    border: 2px dashed #cbd5e1;
+    background: #e2e8f0;
 }
 
-/* Card Styling */
+/* Card Design */
 .card {
     background: white;
-    border-radius: 6px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
     cursor: grab;
     position: relative;
-    border-left: 8px solid #ccc;
-    word-wrap: break-word; /* Handles long description text */
-}
-
-.card:active {
-    cursor: grabbing;
+    border-left: 5px solid #ccc;
 }
 
 .card h3 {
-    margin: 0 0 10px 0;
+    margin: 0 0 0.5rem 0;
     font-size: 1rem;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Handles title overflow */
-    max-width: 200px;
+    text-overflow: ellipsis; /* Prevents title overflow */
+    max-width: 90%;
 }
 
 .card p {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0 0 10px 0;
+    font-size: 0.85rem;
+    color: #475569;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden; /* Limits description height in card view */
 }
 
-.card .points {
+.card .points-tag {
+    font-size: 0.75rem;
     font-weight: bold;
-    font-size: 0.8rem;
-    background: #eee;
+    background: #f1f5f9;
     padding: 2px 8px;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
-.delete-btn {
+.btn-delete {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    background: transparent;
-    border: none;
-    color: #ccc;
-    font-size: 1.2rem;
-    cursor: pointer;
+    top: 10px; right: 10px;
+    background: none; border: none; color: #cbd5e1;
+    cursor: pointer; font-size: 1.2rem;
 }
 
-.delete-btn:hover {
-    color: var(--bug-color);
+.btn-delete:hover { color: var(--bug); }
+
+/* Types */
+.card.bug { border-left-color: var(--bug); }
+.card.story { border-left-color: var(--story); }
+.card.task { border-left-color: var(--task); }
+
+/* Modal Styles */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Card Types */
-.card.bug { border-left-color: var(--bug-color); }
-.card.story { border-left-color: var(--story-color); }
-.card.task { border-left-color: var(--task-color); }
+.modal-box {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
 
-/* Responsive Adjustments */
+.input-group { margin-bottom: 1.25rem; }
+.input-row { display: flex; gap: 1rem; }
+.input-row .input-group { flex: 1; }
+
+label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.4rem; color: #64748b; }
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+}
+
+textarea { resize: vertical; min-height: 120px; }
+
+.modal-footer { display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1rem; }
+
+/* Responsive */
 @media (max-width: 768px) {
-    .board {
-        flex-direction: column;
-        overflow-x: hidden;
-    }
-    .column {
-        min-width: 100%;
-        margin-bottom: 20px;
-    }
-}
+    .kanban-board { flex-direction: column; }
+    .column { min-width: 100%; }
+}   

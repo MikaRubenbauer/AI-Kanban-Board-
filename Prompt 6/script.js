@@ -1,97 +1,96 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const addBtn = document.getElementById('add-btn');
-    const board = document.querySelector('.board');
+    const modal = document.getElementById('modal-overlay');
+    const openModalBtn = document.getElementById('btn-open-modal');
+    const closeModalBtn = document.getElementById('btn-close-modal');
+    const saveCardBtn = document.getElementById('btn-save-card');
 
-    // --- Card Creation Logic ---
-    addBtn.addEventListener('click', () => {
-        const titleInput = document.getElementById('card-title');
-        const descInput = document.getElementById('card-desc');
-        const pointsInput = document.getElementById('card-points');
-        const typeInput = document.getElementById('card-type');
+    // --- Modal Management ---
+    const toggleModal = (state) => {
+        modal.style.display = state ? 'flex' : 'none';
+        if (!state) clearInputs();
+    };
 
-        if (!titleInput.value.trim()) {
-            alert('Please enter a title');
-            return;
-        }
+    const clearInputs = () => {
+        document.getElementById('inp-title').value = '';
+        document.getElementById('inp-desc').value = '';
+        document.getElementById('inp-points').value = '1';
+        document.getElementById('inp-type').value = 'task';
+    };
 
-        createCard(
-            titleInput.value,
-            descInput.value,
-            pointsInput.value || 0,
-            typeInput.value,
-            'todo'
-        );
+    openModalBtn.addEventListener('click', () => toggleModal(true));
+    closeModalBtn.addEventListener('click', () => toggleModal(false));
 
-        // Clear inputs
-        titleInput.value = '';
-        descInput.value = '';
-        pointsInput.value = '';
+    // --- Card Creation ---
+    saveCardBtn.addEventListener('click', () => {
+        const title = document.getElementById('inp-title').value.trim();
+        const desc = document.getElementById('inp-desc').value.trim();
+        const points = document.getElementById('inp-points').value;
+        const type = document.getElementById('inp-type').value;
+
+        if (!title) return alert("Title is required");
+
+        createCard(title, desc, points, type, 'todo');
+        toggleModal(false);
     });
 
-    const createCard = (title, desc, points, type, columnId) => {
+    const createCard = (title, desc, points, type, colId) => {
         const card = document.createElement('div');
-        const cardId = 'card-' + Date.now();
+        const cardId = `card-${Date.now()}`;
         
-        card.classList.add('card', type);
-        card.setAttribute('draggable', 'true');
-        card.setAttribute('id', cardId);
+        card.className = `card ${type}`;
+        card.id = cardId;
+        card.draggable = true;
 
         card.innerHTML = `
-            <button class="delete-btn">&times;</button>
+            <button class="btn-delete">&times;</button>
             <h3>${title}</h3>
             <p>${desc}</p>
-            <span class="points">${points} pts</span>
+            <span class="points-tag">${points} hrs</span>
         `;
 
-        // Delete functionality
-        card.querySelector('.delete-btn').addEventListener('click', () => {
-            card.remove();
-        });
+        // Delete Logic
+        card.querySelector('.btn-delete').addEventListener('click', () => card.remove());
 
-        // Drag start listener
+        // Drag events
         card.addEventListener('dragstart', (e) => {
-            e.dataTransfer.setData('text/plain', card.id);
-            setTimeout(() => card.style.display = 'none', 0); // Hide original while dragging
+            e.dataTransfer.setData('text/plain', cardId);
+            setTimeout(() => card.style.opacity = '0.5', 0);
         });
 
         card.addEventListener('dragend', () => {
-            card.style.display = 'block';
+            card.style.opacity = '1';
         });
 
-        // Append to the specific column container
-        document.querySelector(`#${columnId} .card-container`).appendChild(card);
+        document.querySelector(`#${colId} .card-list`).appendChild(card);
     };
 });
 
-// --- Drag & Drop Functions (Global Scope for HTML attributes) ---
-
+// --- Global Drag & Drop Logic ---
 function allowDrop(e) {
     e.preventDefault();
 }
 
 function dragEnter(e) {
     e.preventDefault();
-    if (e.target.classList.contains('column')) {
-        e.target.classList.add('drag-over');
-    }
+    const col = e.target.closest('.column');
+    if (col) col.classList.add('drag-over');
 }
 
 function dragLeave(e) {
-    if (e.target.classList.contains('column')) {
-        e.target.classList.remove('drag-over');
-    }
+    const col = e.target.closest('.column');
+    if (col) col.classList.remove('drag-over');
 }
 
 function drop(e) {
     e.preventDefault();
-    const column = e.target.closest('.column');
-    if (!column) return;
+    const col = e.target.closest('.column');
+    if (!col) return;
 
-    column.classList.remove('drag-over');
+    col.classList.remove('drag-over');
     const cardId = e.dataTransfer.getData('text/plain');
     const card = document.getElementById(cardId);
     
     if (card) {
-        column.querySelector('.card-container').appendChild(card);
+        col.querySelector('.card-list').appendChild(card);
     }
 }
